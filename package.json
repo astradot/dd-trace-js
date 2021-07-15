@@ -71,7 +71,7 @@
     "nan": "^2.12.1",
     "node-gyp-build": "^3.8.0",
     "opentracing": ">=0.12.1",
-    "path-to-regexp": "^0.1.2",
+    "path-to-regexp": "^0.2.5",
     "performance-now": "^2.1.0",
     "protobufjs": "^6.9.0",
     "semver": "^5.5.0",
