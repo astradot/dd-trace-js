@@ -128,6 +128,7 @@ tracer.init({
   },
   iast: {
     enabled: true,
+    cookieFilterPattern: '.*',
     requestSampling: 50,
     maxConcurrentRequests: 4,
     maxContextOperations: 30,
@@ -143,6 +144,7 @@ tracer.init({
   experimental: {
     iast: {
       enabled: true,
+      cookieFilterPattern: '.*',
       requestSampling: 50,
       maxConcurrentRequests: 4,
       maxContextOperations: 30,
@@ -284,6 +286,7 @@ tracer.use('amqplib');
 tracer.use('avsc');
 tracer.use('aws-sdk');
 tracer.use('aws-sdk', awsSdkOptions);
+tracer.use('azure-functions');
 tracer.use('bunyan');
 tracer.use('couchbase');
 tracer.use('cassandra-driver');

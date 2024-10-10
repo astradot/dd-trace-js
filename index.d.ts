@@ -149,6 +149,7 @@ interface Plugins {
   "apollo": tracer.plugins.apollo;
   "avsc": tracer.plugins.avsc;
   "aws-sdk": tracer.plugins.aws_sdk;
+  "azure-functions": tracer.plugins.azure_functions;
   "bunyan": tracer.plugins.bunyan;
   "cassandra-driver": tracer.plugins.cassandra_driver;
   "child_process": tracer.plugins.child_process;
@@ -1238,6 +1239,12 @@ declare namespace tracer {
     }
 
     /**
+     * This plugin automatically instruments the
+     * @azure/functions module.
+    */
+    interface azure_functions extends Instrumentation {}
+
+    /**
      * This plugin patches the [bunyan](https://github.com/trentm/node-bunyan)
      * to automatically inject trace identifiers in log records when the
      * [logInjection](interfaces/traceroptions.html#logInjection) option is enabled
@@ -1739,7 +1746,6 @@ declare namespace tracer {
      * on the tracer.
      */
     interface pino extends Integration {}
-  
     /**
      * This plugin automatically patches the [protobufjs](https://protobufjs.github.io/protobuf.js/)
      * to collect protobuf message schemas when Datastreams Monitoring is enabled.
@@ -2159,6 +2165,12 @@ declare namespace tracer {
      * @default 2
      */
     maxContextOperations?: number,
+
+    /**
+     * Defines the pattern to ignore cookie names in the vulnerability hash calculation
+     * @default ".{32,}"
+     */
+    cookieFilterPattern?: string,
 
     /**
      * Whether to enable vulnerability deduplication
